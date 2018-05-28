@@ -1,0 +1,11 @@
+{
+  "name": "cordova-plugin-android-notificationchannel",
+  "version": "1.0.0",
+  "description": "cordova plugin for android to create notification channel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
