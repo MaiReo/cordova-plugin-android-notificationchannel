@@ -1,18 +1,18 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-android-notificationchannel" version="1.2.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>androidnotificationchannel</name>
+<plugin id="cordova-plugin-android-notificationchannel" version="1.3.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>AndroidNotificationChannel</name>
 	<description>安卓通知频道</description>
 	<engines>
         <engine name="cordova-android" version=">=7.0.0" />
     </engines>
-    <js-module name="androidnotificationchannel" src="www/androidnotificationchannel.js">
-        <clobbers target="cordova.plugins.androidnotificationchannel" />
+    <js-module name="AndroidNotificationChannel" src="www/androidnotificationchannel.js">
+        <clobbers target="AndroidNotificationChannel" />
     </js-module>
 	<!--platform：支持的平台-->  
     <platform name="android">  
     <!--插件的配置信息，build的时候会添加到res/xml/config.xml 文件中-->  
         <config-file parent="/*" target="res/xml/config.xml">  
-            <feature name="androidnotificationchannel">  
+            <feature name="AndroidNotificationChannel">  
                 <param name="android-package" value="bid.maireo.android.notification.NotificationChannelPlugin"/>  
             </feature>  
         </config-file>  
