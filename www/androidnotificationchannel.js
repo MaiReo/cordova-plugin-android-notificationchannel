@@ -1,9 +1,9 @@
 var exec = require('cordova/exec');
 
-var AndroidNotificationChannel = {
-	createNotificationChannel : function (channelId, channelName, channelDescription, success, error) {
-		exec(success, error, 'AndroidNotificationChannel', 'createNotificationChannel', [channelId, channelName, channelDescription]);
-	},
-	AndroidNotificationChannel: AndroidNotificationChannel
+exports.exports = {
+	AndroidNotificationChannel: {
+		createNotificationChannel: function (channelId, channelName, channelDescription, success, error) {
+			cordova.exec(success, error, 'AndroidNotificationChannel', 'createNotificationChannel', [channelId, channelName, channelDescription]);
+		}
+	}
 };
-exports.AndroidNotificationChannel = AndroidNotificationChannel;
