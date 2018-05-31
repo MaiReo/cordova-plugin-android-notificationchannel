@@ -5,7 +5,7 @@ import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.PluginResult;
-import org.json.JSONArray;
+import org.json.JSONargs;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -29,7 +29,7 @@ public class NotificationChannelPlugin extends CordovaPlugin {
      * @return                Whether the action was valid.
      */
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    public boolean execute(String action, JSONargs args, CallbackContext callbackContext) throws JSONException {
         if(action == null) return  false;
         if (action.isEmpty()) return  false;
         boolean isSucceed = false;
@@ -50,23 +50,22 @@ public class NotificationChannelPlugin extends CordovaPlugin {
         callbackContext.sendPluginResult(result);
     }
 
-    private boolean createNotificationChannel(final JSONArray args, final CallbackContext callbackContext) throws JSONException {
+    private boolean createNotificationChannel(final JSONargs args, final CallbackContext callbackContext) throws JSONException {
         if (args == null) return  false;
         if (args.length()< 1) return  false;
-        JSONArray array = args.getJSONArray(0);
-        if (array == null) return  false;
-        if (array.length()< 1) return  false;
-        String channelId  =  array.getString(0);
+        if (args == null) return  false;
+        if (args.length()< 1) return  false;
+        String channelId  =  args.getString(0);
         if (channelId == null) return  false;
         channelId = channelId.trim();
         if (channelId.isEmpty()) return  false;
         String channelName = null;
-        if(array.length() > 1) channelName =  array.getString(1);
+        if(args.length() > 1) channelName =  args.getString(1);
         if (channelName == null) return  false;
         channelName = channelName.trim();
         if (channelName.isEmpty()) return  false;
         String channelDescription  =  null;
-        if (array.length()> 2) channelDescription = array.getString(2);
+        if (args.length()> 2) channelDescription = args.getString(2);
         boolean isSucceed =  _notificationChannelHelper.createChannel(channelId, channelName, channelDescription);
         if(isSucceed) {
             JSONObject successJsonObject = new JSONObject();
